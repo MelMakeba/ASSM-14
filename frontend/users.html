@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog - Users</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Book<span>Catalog</span></h1>
+            </div>
+            <nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="users.html" class="active">Users</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Users Page Content -->
+        <section id="usersPage" class="page active">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="section-title">User Management</h2>
+                </div>
+                
+                <div class="actions-bar">
+                    <button id="addUserBtn" class="btn primary-btn">
+                        <ion-icon name="person-add-outline"></ion-icon> Add New User
+                    </button>
+                </div>
+                
+                <div class="users-table-container">
+                    <table class="users-table" id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>Books</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Users will be loaded here -->
+                        </tbody>
+                    </table>
+                    <div class="loading" id="loadingUsers">Loading users...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add/Edit User Modal -->
+    <div id="userFormModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="userFormTitle">Add New User</h2>
+                <button id="closeUserFormModal" class="close-btn">
+                    <ion-icon name="close-outline"></ion-icon>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <input type="hidden" id="userId" name="userId" value="">
+                    
+                    <div class="form-group">
+                        <label for="username">Username *</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userEmail">Email *</label>
+                        <input type="email" id="userEmail" name="email" required>
+                    </div>
+                    
+                    <div class="form-group password-field">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" required>
+                        <small>Leave blank to keep current password</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="first_name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="last_name">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary-btn">Save User</button>
+                        <button type="button" id="cancelUserForm" class="btn secondary-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Book Catalog</h3>
+                    <p>Your personal library management system</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="users.html">Users</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><ion-icon name="mail-outline"></ion-icon> info@bookcatalog.com</p>
+                    <p><ion-icon name="call-outline"></ion-icon> (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Book Catalog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="dist/main.js"></script>
+</body>
+</html>

@@ -7,9 +7,16 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build src/*.ts",
+    "dev": "parcel src/*.ts",
+    "start": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "lite-server": "^2.6.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.2"
   }
 }

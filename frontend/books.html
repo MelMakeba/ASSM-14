@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog - Books</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Book<span>Catalog</span></h1>
+            </div>
+            <nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html" class="active">Books</a></li>
+                    <li><a href="users.html">Users</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Books Page Content -->
+        <section id="booksPage" class="page active">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="section-title">Book Collection</h2>
+                    <button id="addBookBtn" class="btn primary-btn">
+                        <ion-icon name="add-outline"></ion-icon> Add New Book
+                    </button>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="yearStart">From Year:</label>
+                        <input type="number" id="yearStart" min="1000" max="2023">
+                    </div>
+                    <div class="filter-group">
+                        <label for="yearEnd">To Year:</label>
+                        <input type="number" id="yearEnd" min="1000" max="2023">
+                    </div>
+                    <button id="filterButton" class="btn secondary-btn">Apply Filter</button>
+                </div>
+                
+                <div class="books-grid" id="booksGrid">
+                    <div class="loading">Loading books...</div>
+                </div>
+                
+                <div class="pagination" id="booksPagination">
+                    <!-- Pagination will be generated here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Book Detail Modal -->
+    <div class="modal" id="bookDetailModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBookDetailModal">&times;</span>
+            <div class="book-detail" id="bookDetailContent">
+                <!-- Book details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Book Modal -->
+    <div class="modal" id="bookFormModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBookFormModal">&times;</span>
+            <h2 id="bookFormTitle">Add New Book</h2>
+            <form id="bookForm">
+                <input type="hidden" id="bookId">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="publicationYear">Publication Year</label>
+                    <input type="number" id="publicationYear" name="publication_year" min="1000" max="2023" required>
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" id="isbn" name="isbn" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn cancel-btn" id="cancelBookForm">Cancel</button>
+                    <button type="submit" class="btn primary-btn" id="submitBookForm">Save Book</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Book Catalog</h3>
+                    <p>Your personal library management system</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="users.html">Users</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><ion-icon name="mail-outline"></ion-icon> info@bookcatalog.com</p>
+                    <p><ion-icon name="call-outline"></ion-icon> (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Book Catalog. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="dist/main.js"></script>
+</body>
+</html>
